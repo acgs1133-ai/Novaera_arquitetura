@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="./image-slot.js"></script>
+<style>
+html{scroll-behavior:smooth}
+body{margin:0;background:#f1ede8;font-family:'Manrope',sans-serif;color:#282d31;-webkit-font-smoothing:antialiased}
+a{color:#6f7d6a;text-decoration:none}a:hover{color:#5b5249}
+::selection{background:#d29a61;color:#282d31}
+</style>
+</helmet>
+
+<div style="position:relative;background:#f1ede8;min-height:100vh">
+
+<div style="position:sticky;top:0;left:0;right:0;z-index:50;background:#f1ede8;box-shadow:0 1px 0 rgba(40,45,49,.1)">
+<div style="max-width:1240px;margin:0 auto;padding:0 clamp(24px,5vw,56px);display:flex;align-items:center;justify-content:space-between;height:78px">
+<a href="Site%20Arquitetura%20-%20Home.dc.html" style="font-family:'Instrument Serif',serif;font-style:italic;font-size:24px;letter-spacing:.01em;color:#282d31">Novaera</a>
+<div style="display:flex;align-items:center;gap:clamp(18px,3vw,36px)">
+<a href="Site%20Arquitetura%20-%20Home.dc.html#sobre" style="font-size:13px;font-weight:600;letter-spacing:.03em;color:#282d31">Sobre</a>
+<a href="Projetos.dc.html" style="font-size:13px;font-weight:600;letter-spacing:.03em;color:#6f7d6a;border-bottom:1px solid #d29a61;padding-bottom:2px">Projetos</a>
+<a href="Site%20Arquitetura%20-%20Home.dc.html#servicos" style="font-size:13px;font-weight:600;letter-spacing:.03em;color:#282d31">Serviços</a>
+<a href="Site%20Arquitetura%20-%20Home.dc.html#contato" style="background:#d29a61;color:#282d31;font-size:13px;font-weight:700;padding:10px 20px;border-radius:2px">Fale conosco</a>
+</div>
+</div>
+</div>
+
+<header style="max-width:1240px;margin:0 auto;padding:clamp(56px,8vw,96px) clamp(24px,5vw,56px) 44px">
+<a href="Site%20Arquitetura%20-%20Home.dc.html" style="font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#6f7d6a;font-weight:700">← Voltar para a home</a>
+<h1 style="font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(38px,6vw,72px);line-height:1.06;margin:22px 0 18px;color:#5b5249;max-width:820px">Todos os projetos</h1>
+<p style="font-size:clamp(14px,1.6vw,17px);line-height:1.6;color:#282d31;max-width:520px;margin:0">Residências, espaços comerciais e reformas entregues pela Novaera — do estudo preliminar ao acompanhamento de obra.</p>
+<div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:34px">
+<sc-for list="{{ chips }}" as="c" hint-placeholder-count="4"><button onClick="{{ c.click }}" style="{{ c.style }}">{{ c.label }}</button></sc-for>
+</div>
+</header>
+
+<main style="max-width:1240px;margin:0 auto;padding:0 clamp(24px,5vw,56px) 110px">
+<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:clamp(24px,3vw,40px) clamp(20px,2.5vw,28px)">
+<sc-for list="{{ projects }}" as="p" hint-placeholder-count="9">
+<div data-reveal-id="{{ p.revealId }}" style="{{ p.cardStyle }}" onMouseEnter="{{ p.enter }}" onMouseLeave="{{ p.leave }}" onClick="{{ p.open }}">
+<div style="{{ p.mediaStyle }}">
+<image-slot id="{{ p.slotId }}" shape="rect" placeholder="{{ p.name }}" src="{{ p.src }}"></image-slot>
+<div style="{{ p.scrimStyle }}"></div>
+<span style="{{ p.tagStyle }}">{{ p.category }}</span>
+</div>
+<div style="display:flex;flex-direction:column;gap:5px">
+<span style="font-family:'Instrument Serif',serif;font-size:23px;color:#282d31;line-height:1.15">{{ p.name }}</span>
+<span style="font-size:12.5px;color:#8a857c">{{ p.meta }}</span>
+</div>
+</div>
+</sc-for>
+</div>
+</main>
+
+<div style="{{ detailStyle }}" ref="{{ detailRef }}">
+<div style="position:sticky;top:0;z-index:10;background:#f1ede8;border-bottom:1px solid rgba(40,45,49,.1)">
+<div style="max-width:1240px;margin:0 auto;padding:0 clamp(24px,5vw,56px);display:flex;align-items:center;justify-content:space-between;height:78px">
+<span style="font-family:'Instrument Serif',serif;font-style:italic;font-size:24px;color:#282d31">Novaera</span>
+<button onClick="{{ closeDetail }}" style="background:none;border:1px solid rgba(40,45,49,.25);color:#282d31;font-family:'Manrope',sans-serif;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:10px 18px;border-radius:2px;cursor:pointer" style-hover="border-color:#282d31">Fechar</button>
+</div>
+</div>
+
+<div style="max-width:1000px;margin:0 auto;padding:clamp(40px,6vw,72px) clamp(24px,5vw,56px) clamp(28px,4vw,44px);display:flex;flex-direction:column;gap:14px;align-items:flex-start">
+<button onClick="{{ closeDetail }}" style="background:none;border:none;padding:0;cursor:pointer;font-family:'Manrope',sans-serif;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#8a857c" style-hover="color:#6f7d6a">← Portfólio</button>
+<span style="font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:#d29a61;font-weight:700">{{ detailCategory }}</span>
+<h2 style="font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(36px,5.4vw,64px);line-height:1.04;margin:0;color:#282d31">{{ detailName }}</h2>
+</div>
+
+<div style="width:100%;height:min(58vh,600px);background:#e7e2d9">
+<image-slot id="{{ detailHeroId }}" shape="rect" placeholder="{{ detailName }}" src="{{ detailSrc }}"></image-slot>
+</div>
+
+<div style="max-width:1000px;margin:0 auto;padding:clamp(40px,5vw,64px) clamp(24px,5vw,56px) 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:26px 20px">
+<div style="display:flex;flex-direction:column;gap:7px"><span style="font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:#a09a90;font-weight:700">Localização</span><span style="font-family:'Instrument Serif',serif;font-size:19px;color:#282d31">{{ detailLocation }}</span></div>
+<div style="display:flex;flex-direction:column;gap:7px"><span style="font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:#a09a90;font-weight:700">Área</span><span style="font-family:'Instrument Serif',serif;font-size:19px;color:#282d31">{{ detailArea }}</span></div>
+<div style="display:flex;flex-direction:column;gap:7px"><span style="font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:#a09a90;font-weight:700">Ano</span><span style="font-family:'Instrument Serif',serif;font-size:19px;color:#282d31">{{ detailYear }}</span></div>
+<div style="display:flex;flex-direction:column;gap:7px"><span style="font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:#a09a90;font-weight:700">Duração da obra</span><span style="font-family:'Instrument Serif',serif;font-size:19px;color:#282d31">{{ detailDuration }}</span></div>
+</div>
+
+<div style="max-width:1000px;margin:0 auto;padding:0 clamp(24px,5vw,56px)">
+<div style="height:1px;background:rgba(40,45,49,.14);margin:clamp(30px,4vw,44px) 0"></div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:clamp(28px,4vw,52px)">
+<div style="display:flex;flex-direction:column;gap:14px"><span style="font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#d29a61;font-weight:700">O desafio</span><p style="font-size:14.5px;line-height:1.7;color:#282d31;margin:0;text-wrap:pretty">{{ detailChallenge }}</p></div>
+<div style="display:flex;flex-direction:column;gap:14px"><span style="font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#d29a61;font-weight:700">O conceito</span><p style="font-size:14.5px;line-height:1.7;color:#282d31;margin:0;text-wrap:pretty">{{ detailConcept }}</p></div>
+</div>
+</div>
+
+<div style="max-width:1000px;margin:0 auto;padding:clamp(48px,6vw,86px) clamp(24px,5vw,56px) 0;display:grid;grid-template-columns:1.55fr 1fr;gap:clamp(14px,2vw,22px)">
+<div style="aspect-ratio:3/2;border-radius:8px;overflow:hidden;background:#e7e2d9"><image-slot id="{{ detailG1Id }}" shape="rect" placeholder="Ambiente" src="{{ detailG1 }}"></image-slot></div>
+<div style="aspect-ratio:4/5;border-radius:8px;overflow:hidden;background:#e7e2d9;align-self:end"><image-slot id="{{ detailG2Id }}" shape="rect" placeholder="Detalhe" src="{{ detailG2 }}"></image-slot></div>
+<div style="grid-column:1 / -1;aspect-ratio:21/9;border-radius:8px;overflow:hidden;background:#e7e2d9"><image-slot id="{{ detailG3Id }}" shape="rect" placeholder="Ambiente" src="{{ detailG3 }}"></image-slot></div>
+</div>
+
+<div style="max-width:720px;margin:0 auto;padding:clamp(56px,7vw,100px) clamp(24px,5vw,56px);display:flex;flex-direction:column;align-items:center;gap:22px;text-align:center">
+<p style="font-family:'Instrument Serif',serif;font-style:italic;font-size:clamp(21px,2.8vw,29px);line-height:1.35;color:#5b5249;margin:0;text-wrap:pretty">“{{ detailQuote }}”</p>
+<span style="font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#a09a90;font-weight:700">{{ detailAuthor }}</span>
+<a href="Site%20Arquitetura%20-%20Home.dc.html#contato" style="margin-top:18px;border:1px solid #282d31;color:#282d31;font-size:11.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:16px 30px;border-radius:2px" style-hover="background:#d29a61;border-color:#d29a61">Quero um projeto assim</a>
+</div>
+
+<div style="border-top:1px solid rgba(40,45,49,.12);padding:26px clamp(24px,5vw,56px);display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap">
+<button onClick="{{ prevDetail }}" style="background:none;border:none;padding:0;cursor:pointer;font-family:'Manrope',sans-serif;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#8a857c" style-hover="color:#6f7d6a">← Projeto anterior</button>
+<button onClick="{{ nextDetail }}" style="background:none;border:none;padding:0;cursor:pointer;font-family:'Manrope',sans-serif;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#8a857c" style-hover="color:#6f7d6a">Próximo projeto →</button>
+</div>
+</div>
+
+<footer style="padding:34px clamp(24px,5vw,56px);border-top:1px solid rgba(40,45,49,.12);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:12px;color:#8a857c">
+<span>© 2026 Novaera Arquitetura</span>
+<span>São Paulo, Brasil</span>
+</footer>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+const EXTRA_NAMES = [
+  {name:'Vila Aurora', location:'Ubatuba, SP', area:'240m²', category:'Residencial'},
+  {name:'Ateliê Norte', location:'São Paulo, SP', area:'75m²', category:'Comercial'},
+  {name:'Casa Pátio', location:'Curitiba, PR', area:'190m²', category:'Residencial'},
+  {name:'Loja Âmbar', location:'Belo Horizonte, MG', area:'120m²', category:'Comercial'},
+  {name:'Escritório Vertz', location:'São Paulo, SP', area:'260m²', category:'Comercial'},
+  {name:'Casa Ribeira', location:'Florianópolis, SC', area:'175m²', category:'Reforma'}
+];
+
+class Component extends DCLogic {
+  state = { projects: [], details: {}, filter: 'Todos', hover: -1, revealed: {}, detail: -1 };
+
+  detailRef = (el) => { this._detailEl = el; };
+  openDetail = (i) => {
+    this.setState({ detail: i });
+    document.body.style.overflow = 'hidden';
+    requestAnimationFrame(() => { if (this._detailEl) this._detailEl.scrollTop = 0; });
+  };
+  closeDetail = (e) => {
+    if (e) e.stopPropagation();
+    this.setState({ detail: -1 });
+    document.body.style.overflow = '';
+  };
+  stepDetail = (dir, n) => (e) => {
+    if (e) e.stopPropagation();
+    this.setState(s => ({ detail: (s.detail + dir + n) % n }));
+    requestAnimationFrame(() => { if (this._detailEl) this._detailEl.scrollTop = 0; });
+  };
+
+  componentDidMount() {
+    import('./projects-data.js').then(m => {
+      const base = m.CASES.map(c => ({
+        name: c.name, category: c.category, location: c.location, area: c.area,
+        slotId: 'g-' + c.slotId, src: c.src
+      }));
+      const extra = m.SHOWCASE.map((s, i) => {
+        const e = EXTRA_NAMES[i] || EXTRA_NAMES[0];
+        return {
+          name: e.name, category: e.category, location: e.location, area: e.area,
+          slotId: 'g-x-' + s.slotId, src: s.src
+        };
+      });
+      this.setState({ projects: [...base, ...extra], details: m.DETAILS || {} });
+    });
+
+    this._observed = new WeakSet();
+    this._io = new IntersectionObserver(entries => {
+      let changed = false; const upd = {};
+      entries.forEach(e => {
+        const id = e.target.getAttribute('data-reveal-id');
+        if (!id) return;
+        if (!!this.state.revealed[id] !== e.isIntersecting) { upd[id] = e.isIntersecting; changed = true; }
+      });
+      if (changed) this.setState(s => ({ revealed: { ...s.revealed, ...upd } }));
+    }, { threshold: 0.1, rootMargin: '0px 0px -6% 0px' });
+    this._scan();
+  }
+  componentDidUpdate() { this._scan(); }
+  componentWillUnmount() { if (this._io) this._io.disconnect(); }
+
+  _scan = () => {
+    if (!this._io) return;
+    document.querySelectorAll('[data-reveal-id]').forEach(el => {
+      if (!this._observed.has(el)) { this._observed.add(el); this._io.observe(el); }
+    });
+  };
+
+  renderVals() {
+    const { projects, filter, hover, revealed, detail } = this.state;
+    const types = ['Todos', 'Residencial', 'Comercial', 'Reforma'];
+    const shown = filter === 'Todos' ? projects : projects.filter(p => p.category === filter);
+    const active = detail >= 0 ? shown[detail] : null;
+    const d = (active && this.state.details[active.name]) || {};
+    const gal = d.gallery || [];
+
+    return {
+      detailStyle: {
+        position: 'fixed', inset: 0, zIndex: 100, background: '#f1ede8',
+        overflowY: active ? 'auto' : 'hidden', overflowX: 'hidden',
+        opacity: active ? 1 : 0, pointerEvents: active ? 'auto' : 'none',
+        transform: active ? 'translateY(0)' : 'translateY(14px)',
+        transition: 'opacity .45s cubic-bezier(.22,.61,.36,1), transform .45s cubic-bezier(.22,.61,.36,1)'
+      },
+      detailRef: this.detailRef,
+      closeDetail: this.closeDetail,
+      prevDetail: this.stepDetail(-1, Math.max(shown.length, 1)),
+      nextDetail: this.stepDetail(1, Math.max(shown.length, 1)),
+      detailName: active ? active.name : '',
+      detailCategory: active ? active.category : '',
+      detailLocation: active ? active.location : '',
+      detailArea: active ? active.area : '',
+      detailYear: d.year || '',
+      detailDuration: d.duration || '',
+      detailChallenge: d.challenge || '',
+      detailConcept: d.concept || '',
+      detailQuote: d.quote || '',
+      detailAuthor: d.author || '',
+      detailSrc: active ? active.src : '',
+      detailHeroId: active ? 'd-hero-' + active.slotId : 'd-hero',
+      detailG1: gal[0] || '', detailG1Id: active ? 'd-g1-' + active.slotId : 'd-g1',
+      detailG2: gal[1] || '', detailG2Id: active ? 'd-g2-' + active.slotId : 'd-g2',
+      detailG3: gal[2] || '', detailG3Id: active ? 'd-g3-' + active.slotId : 'd-g3',
+      chips: types.map(t => ({
+        label: t,
+        click: () => this.setState({ filter: t }),
+        style: {
+          fontFamily: 'Manrope,sans-serif', fontSize: '12px', fontWeight: 600,
+          padding: '9px 18px', borderRadius: '20px', cursor: 'pointer',
+          border: t === filter ? '1px solid #282d31' : '1px solid rgba(40,45,49,.2)',
+          background: t === filter ? '#282d31' : 'transparent',
+          color: t === filter ? '#f1ede8' : '#282d31',
+          transition: 'background .25s ease, color .25s ease, border-color .25s ease'
+        }
+      })),
+      projects: shown.map((p, i) => {
+        const id = 'card-' + p.slotId;
+        const on = !!revealed[id];
+        const isHover = hover === i;
+        return {
+          name: p.name, category: p.category, slotId: p.slotId, src: p.src,
+          meta: p.location + ' · ' + p.area,
+          revealId: id,
+          open: () => this.openDetail(i),
+          enter: () => this.setState({ hover: i }),
+          leave: () => this.setState({ hover: -1 }),
+          cardStyle: {
+            display: 'flex', flexDirection: 'column', gap: '14px', cursor: 'pointer',
+            color: 'inherit', textDecoration: 'none',
+            opacity: on ? 1 : 0,
+            transform: on ? (isHover ? 'translateY(-6px)' : 'translateY(0)') : 'translateY(26px)',
+            transition: `opacity .8s cubic-bezier(.22,.61,.36,1) ${(i % 3) * 80}ms, transform .55s cubic-bezier(.22,.61,.36,1)`
+          },
+          mediaStyle: {
+            position: 'relative', width: '100%', aspectRatio: '4/5', overflow: 'hidden',
+            borderRadius: '10px',
+            boxShadow: isHover ? '0 22px 44px rgba(40,45,49,.24)' : '0 8px 20px rgba(40,45,49,.10)',
+            transition: 'box-shadow .5s ease'
+          },
+          scrimStyle: {
+            position: 'absolute', inset: 0, pointerEvents: 'none',
+            background: 'linear-gradient(to top,rgba(20,18,15,.55),transparent 55%)',
+            opacity: isHover ? 1 : 0, transition: 'opacity .45s ease'
+          },
+          tagStyle: {
+            position: 'absolute', left: '16px', bottom: '16px',
+            fontSize: '10.5px', letterSpacing: '.12em', textTransform: 'uppercase',
+            fontWeight: 700, color: '#f1ede8',
+            opacity: isHover ? 1 : 0,
+            transform: isHover ? 'translateY(0)' : 'translateY(8px)',
+            transition: 'opacity .45s ease, transform .45s ease'
+          }
+        };
+      })
+    };
+  }
+}
+
+</script>
+</body>
+</html>

@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics="">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<script src="./image-slot.js"></script>
+<style>
+html{scroll-behavior:smooth}
+body{margin:0;background:#f1ede8;font-family:'Manrope',sans-serif;color:#282d31;-webkit-font-smoothing:antialiased}
+a{color:#6f7d6a;text-decoration:none}a:hover{color:#5b5249}
+::selection{background:#d29a61;color:#282d31}
+@keyframes marquee-x{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes fade-in{from{opacity:0}to{opacity:1}}
+@keyframes flow-drift{0%{transform:translateY(0) translateX(0)}50%{transform:translateY(-42px) translateX(30px)}100%{transform:translateY(0) translateX(0)}}
+@keyframes flow-fade{0%,100%{opacity:.6}50%{opacity:1}}
+</style>
+</helmet>
+
+<div style="position:relative;background:#f1ede8">
+
+<div style="{{ navBarStyle }}">
+<div style="max-width:1240px;margin:0 auto;padding:0 clamp(24px,5vw,56px);display:flex;align-items:center;justify-content:space-between;height:78px">
+<div style="font-family: 'Instrument Serif',serif; font-style: italic; font-size: 24px; letter-spacing: .01em; color: {{ navTextColor }}; overflow: visible"><span style="letter-spacing: 0.01em; background-color: transparent; width: 82px; height: 34px; font-size: 30px; font-weight: 600">Novaera</span></div>
+<div style="display:flex;align-items:center;gap:clamp(18px,3vw,36px)">
+<a href="#sobre" style="position:relative;font-size:13px;font-weight:600;letter-spacing:.03em;color:{{ navTextColor }};text-decoration:none;padding-bottom:3px;background-image:linear-gradient(#d29a61,#d29a61);background-repeat:no-repeat;background-position:0 100%;background-size:0% 1px;transition:background-size .4s cubic-bezier(.4,0,.2,1),color .3s ease,transform .3s ease;display:inline-block" style-hover="background-size:100% 1px;color:#d29a61;transform:translateY(-1px)">Sobre</a>
+<a href="Projetos.dc.html" style="position:relative;font-size:13px;font-weight:600;letter-spacing:.03em;color:{{ navTextColor }};text-decoration:none;padding-bottom:3px;background-image:linear-gradient(#d29a61,#d29a61);background-repeat:no-repeat;background-position:0 100%;background-size:0% 1px;transition:background-size .4s cubic-bezier(.4,0,.2,1),color .3s ease,transform .3s ease;display:inline-block" style-hover="background-size:100% 1px;color:#d29a61;transform:translateY(-1px)">Projetos</a>
+<a href="#servicos" style="position:relative;font-size:13px;font-weight:600;letter-spacing:.03em;color:{{ navTextColor }};text-decoration:none;padding-bottom:3px;background-image:linear-gradient(#d29a61,#d29a61);background-repeat:no-repeat;background-position:0 100%;background-size:0% 1px;transition:background-size .4s cubic-bezier(.4,0,.2,1),color .3s ease,transform .3s ease;display:inline-block" style-hover="background-size:100% 1px;color:#d29a61;transform:translateY(-1px)">Serviços</a>
+<a href="#contato" onPointerMove="{{ magnetMove }}" onPointerEnter="{{ originEnter }}" onPointerLeave="{{ magnetLeave }}" data-base-color="#282d31" data-hover-color="#f1ede8" style="position:relative;overflow:hidden;display:inline-block;background: #d29a61; color: #282d31; font-size: 13px; font-weight: 700; padding: 10px 20px; border-radius: 14px; transition: transform .25s cubic-bezier(.2,1,.3,1), color .3s ease, box-shadow .3s ease; box-shadow: 0 0 0 rgba(210,154,97,0)" style-hover="box-shadow:0 8px 20px rgba(210,154,97,.45)"><span data-fill="true" style="position:absolute;left:0;top:0;width:0;height:0;border-radius:50%;background:#282d31;transform:translate(-50%,-50%) scale(0);transition:transform .5s cubic-bezier(.16,1,.3,1);pointer-events:none"></span><span style="position:relative;z-index:1">Fale conosco</span></a>
+</div>
+</div>
+</div>
+
+<section style="position:relative;height:100vh;min-height:640px;overflow:hidden;background:#141210">
+
+<div style="{{ heroBgStyle }}">
+<image-slot id="hero-bg" shape="rect" placeholder="Fachada / paisagem ampla — imagem de fundo" src="uploads/hero%20.jpg"></image-slot>
+</div>
+
+<div style="{{ heroMediaWrapStyle }}">
+<image-slot id="hero-media" shape="rect" placeholder="Casa autoral · golden hour · foto de portfólio própria" src="uploads/BzvkWvxI6EMOZPGBKZgR28LmD6ng6DUefSDKHKHwbrBRzRcwc_xE-MX-YuTmFj9k7iqQWHNRJV_hf2iYy6Hhp5wY_7qmOT71YGhWegqjbwlavYhspM2YbIjHjDAn89dLvkIgToW2DXFJQCN_PcjqI50rGTBjo8k-BAds6pjVTr71qEuprDzJXBhAOQSAgNBM.jpeg"></image-slot>
+<div style="{{ heroMediaScrimStyle }}"></div>
+</div>
+
+<div style="{{ heroTitleWrapStyle }}">
+<span style="{{ heroTitleLeftStyle }}">Arquitetura</span>
+<span style="{{ heroTitleRightStyle }}">que transforma espaços</span>
+</div>
+
+<div style="{{ heroContentStyle }}">
+<p style="font-size:clamp(14px,1.6vw,18px);color:#e4dfd6;max-width:460px;margin:0 0 28px;line-height:1.5;text-align:center">Projetos residenciais, comerciais e reformas conduzidos do conceito à entrega, com atenção a cada detalhe.</p>
+<a href="Projetos.dc.html" onPointerMove="{{ magnetMove }}" onPointerEnter="{{ originEnter }}" onPointerLeave="{{ magnetLeave }}" data-base-color="#282d31" data-hover-color="#f1ede8" style="position:relative;overflow:hidden;pointer-events: auto; display: inline-block; background: #d29a61; color: #282d31; font-size: 14px; font-weight: 700; padding: 15px 30px; border-radius: 14px; transition: transform .25s cubic-bezier(.2,1,.3,1), color .3s ease, box-shadow .3s ease" style-hover="box-shadow:0 10px 24px rgba(210,154,97,.45)"><span data-fill="true" style="position:absolute;left:0;top:0;width:0;height:0;border-radius:50%;background:#282d31;transform:translate(-50%,-50%) scale(0);transition:transform .5s cubic-bezier(.16,1,.3,1);pointer-events:none"></span><span style="position:relative;z-index:1">Ver projetos</span></a>
+</div>
+
+<div style="{{ heroCueStyle }}">
+<div style="width:1px;height:34px;background:linear-gradient(to bottom,transparent,#f1ede8)"></div>
+<span style="font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#e4dfd6">Role para expandir</span>
+</div>
+
+</section>
+
+<section id="carrossel" data-reveal-id="carrossel" style="{{ revealCarrossel }}">
+<div style="max-width:1240px;margin:0 auto;padding:0 clamp(24px,5vw,56px);display:flex;align-items:baseline;justify-content:space-between;margin-bottom:36px">
+<h2 style="font-family: 'Instrument Serif',serif; font-weight: 600; font-size: clamp(30px,3vw,34px); margin: 0; color: #5b5249; height: 65px; width: 274px">Nossas últimas criações</h2>
+<span style="font-size:12px;color:#8a857c">passe o mouse para expandir</span>
+</div>
+<div style="display:flex;gap:8px;height:min(64vh,460px);padding:0 clamp(24px,5vw,56px)">
+<sc-for list="{{ showcase }}" as="s" hint-placeholder-count="6">
+<a href="Projetos.dc.html" onMouseEnter="{{ s.enter }}" style="{{ s.wrapStyle }}">
+<div style="position:absolute;inset:0;overflow:hidden;transition:transform .5s ease" style-hover="transform:scale(1.06)"><image-slot id="{{ s.slotId }}" shape="rect" placeholder="{{ s.name }}" src="{{ s.src }}" style="width:100%;height:100%;object-fit:cover"></image-slot></div>
+<div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(20,18,15,.7) 0%,rgba(20,18,15,.15) 40%,transparent 65%);pointer-events:none"></div>
+<div style="position:absolute;left:0;right:0;bottom:0;padding:22px;display:flex;flex-direction:column;gap:4px;white-space:nowrap">
+<span style="font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#d29a61;font-weight:700">{{ s.category }}</span>
+<span style="font-family:'Instrument Serif',serif;font-size:22px;color:#f1ede8">{{ s.name }}</span>
+</div>
+</a>
+</sc-for>
+</div>
+</section>
+
+<section id="sobre" onPointerMove="{{ trailMove }}" onPointerLeave="{{ trailLeave }}" style="padding:90px 0;position:relative">
+<div style="position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:2">
+<sc-for list="{{ trailImages }}" as="t">
+<img data-trail="1" data-src="{{ t.src }}" alt="" style="position:absolute;left:0;top:0;width:clamp(84px,8vw,120px);aspect-ratio:3/4;object-fit:cover;border-radius:3px;opacity:0;transform:translate(-50%,-50%) scale(.4);transition:transform .55s cubic-bezier(.16,1,.3,1),opacity .55s ease;will-change:transform,opacity;box-shadow:0 18px 40px rgba(40,45,49,.28)">
+</sc-for>
+</div>
+<div style="max-width:1240px;margin:0 auto;padding:0 clamp(24px,5vw,56px);display:flex;gap:clamp(32px,6vw,80px);align-items:flex-start;flex-wrap:wrap;position:relative;z-index:3">
+<div data-reveal-id="sobre-text" style="{{ revealSobreText }}">
+<span style="font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#6f7d6a;font-weight:700">Sobre a Novaera</span>
+<h2 style="font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(28px,3.4vw,38px);margin:0;color:#5b5249;line-height:1.15">Nascemos da vontade de projetar espaços que respondem a quem vive neles.</h2>
+<p style="font-size:15px;line-height:1.7;color:#282d31;margin:0">Começamos como um pequeno escritório dedicado a reformas residenciais e crescemos para atender projetos comerciais e institucionais — sempre com a mesma premissa: arquitetura que parte da escuta antes do desenho.</p>
+<div style="border-left:2px solid #d29a61;padding-left:18px">
+<p style="font-family:'Instrument Serif',serif;font-style:italic;font-size:19px;color:#5b5249;margin:0;line-height:1.4">"Acreditamos que cada espaço deve contar uma história — a de quem o habita."</p>
+<span style="font-size:12px;color:#8a857c;display:block;margin-top:8px">Sócia-fundadora</span>
+</div>
+</div>
+<div style="flex:1 1 420px;min-width:320px;display:flex;flex-direction:column">
+<sc-for list="{{ aboutStack }}" as="st" hint-placeholder-count="3">
+<div style="position:sticky;top:110px;height:78vh;max-height:620px;border-radius:3px;overflow:hidden;box-shadow:0 24px 48px rgba(0,0,0,.28);margin-bottom:64px">
+<div style="position:absolute;inset:0;overflow:hidden;transition:transform .6s ease" style-hover="transform:scale(1.05)"><image-slot id="{{ st.slotId }}" shape="rect" placeholder="{{ st.placeholder }}" src="{{ st.src }}" style="width:100%;height:100%;object-fit:cover"></image-slot></div>
+<div style="position:absolute;left:0;right:0;bottom:0;padding:26px;background:linear-gradient(to top,rgba(20,18,15,.75),transparent);pointer-events:none">
+<span style="font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#d29a61;font-weight:700">{{ st.tag }}</span>
+<p style="font-family:'Instrument Serif',serif;font-size:22px;color:#f1ede8;margin:6px 0 0">{{ st.caption }}</p>
+</div>
+</div>
+</sc-for>
+</div>
+</div>
+</section>
+
+<section id="projetos" data-reveal-id="projetos-section" style="{{ revealProjetosSection }}">
+<div style="max-width:1240px;margin:0 auto;padding:0 clamp(24px,5vw,56px)">
+<div data-reveal-id="projetos-header" style="{{ revealProjetosHeader }}">
+<h2 style="font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(26px,3vw,34px);margin:0;color:#5b5249">Cases de sucesso</h2>
+</div>
+<div data-reveal-id="cases-track" style="{{ casesMaskStyle }}" onMouseEnter="{{ pauseCases }}" onMouseLeave="{{ resumeCases }}">
+<div style="{{ casesTrackStyle }}">
+<sc-for list="{{ casesTrack }}" as="p" hint-placeholder-count="8">
+<a href="Projetos.dc.html" style="flex:none;width:min(78vw,340px);display:flex;flex-direction:column;gap:12px;cursor:pointer;color:inherit;text-decoration:none">
+<div style="width:100%;aspect-ratio:4/3;overflow:hidden;border-radius:10px;transition:transform .5s ease" style-hover="transform:scale(1.08)"><image-slot id="{{ p.slotId }}" shape="rect" placeholder="{{ p.name }}" src="{{ p.src }}"></image-slot></div>
+<div style="display:flex;flex-direction:column;gap:4px">
+<span style="font-size:16px;font-weight:600">{{ p.name }}</span>
+<span style="font-size:12px;color:#8a857c">{{ p.location }} · {{ p.area }}</span>
+<span style="font-size:13px;color:#6f7d6a;font-weight:600;margin-top:4px">{{ p.result }}</span>
+</div>
+</a>
+</sc-for>
+</div>
+</div>
+</div>
+</section>
+
+<section id="como-funciona" data-reveal-id="como-funciona-header" style="{{ revealComoFuncionaHeader }}">
+<div style="max-width:1240px;margin:0 auto;padding:0 clamp(24px,5vw,56px)">
+<div style="display:flex;gap:clamp(40px,6vw,88px);flex-wrap:wrap;align-items:flex-start">
+<div style="flex:1 1 260px;min-width:240px;position:sticky;top:130px;display:flex;flex-direction:column;gap:22px">
+<span style="font-family:'Manrope',sans-serif;font-size:11px;font-weight:700;letter-spacing:.16em;color:#6f7d6a;text-transform:uppercase">Processo</span>
+<h2 style="font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(28px,3.4vw,38px);line-height:1.16;margin:0;color:#5b5249">Da escuta ao<br>último acabamento</h2>
+<p style="font-size:14px;line-height:1.6;color:#8a857c;margin:0;max-width:260px">Seis etapas conduzidas pela mesma equipe, do primeiro esboço à vistoria final.</p>
+<div style="display:flex;flex-direction:column;margin-top:8px;border-top:1px solid rgba(91,82,73,.22)">
+<sc-for list="{{ stepIndex }}" as="si" hint-placeholder-count="6">
+<div style="display:flex;align-items:baseline;gap:12px;padding:11px 0;border-bottom:1px solid rgba(91,82,73,.22)">
+<span style="font-family:'Instrument Serif',serif;font-size:13px;color:#d29a61;width:16px;flex:none">{{ si.roman }}</span>
+<span style="font-size:12px;color:#8a857c;letter-spacing:.02em">{{ si.short }}</span>
+</div>
+</sc-for>
+</div>
+</div>
+<div style="flex:2 1 480px;min-width:280px;display:flex;flex-direction:column">
+<sc-for list="{{ steps }}" as="st" hint-placeholder-count="6">
+<div data-reveal-id="{{ st.revealId }}" style="{{ st.rowStyle }}">
+<div onMouseEnter="{{ st.enter }}" onMouseLeave="{{ st.leave }}" style="display:flex;align-items:center;gap:clamp(20px,3vw,40px);flex-wrap:wrap;padding:34px 0;border-bottom:1px solid rgba(40,45,49,.14)" style-hover="background-color:rgba(111,125,106,.06)">
+<span style="font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(52px,6.5vw,84px);line-height:1;color:transparent;-webkit-text-stroke:1px rgba(111,125,106,.5);flex:none">{{ st.n }}</span>
+<div style="flex:1 1 240px;min-width:200px;display:flex;flex-direction:column;gap:8px">
+<span style="font-family:'Manrope',sans-serif;font-size:11px;font-weight:700;letter-spacing:.12em;color:#d29a61;text-transform:uppercase">Etapa {{ st.n }}</span>
+<span style="font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(19px,2vw,23px);color:#282d31">{{ st.title }}</span>
+<span style="font-size:14px;color:#5b5249;line-height:1.62;max-width:460px">{{ st.desc }}</span>
+</div>
+<div style="{{ st.imgWrapStyle }}">
+<image-slot id="{{ st.imgSlotId }}" shape="rect" placeholder="{{ st.imgPlaceholder }}" src="{{ st.imgSrc }}" style="width:100%;height:100%;object-fit:cover"></image-slot>
+</div>
+</div>
+</div>
+</sc-for>
+</div>
+</div>
+</div>
+</section>
+
+<section id="servicos" data-reveal-id="servicos-header" style="{{ revealServicosHeader }}">
+<div style="max-width:1240px;margin:0 auto;padding:0 clamp(24px,5vw,56px)">
+<h2 style="font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(26px,3vw,34px);margin:0 0 44px;color:#5b5249">Serviços</h2>
+<div style="display:flex;gap:clamp(32px,6vw,72px);flex-wrap:wrap;align-items:flex-start">
+<div style="flex:1 1 380px;min-width:300px">
+<sc-for list="{{ services }}" as="sv" hint-placeholder-count="6">
+<div data-reveal-id="{{ sv.revealId }}" style="{{ sv.rowStyle }}">
+<div onMouseEnter="{{ sv.onHover }}" style="display:flex;align-items:baseline;gap:16px;padding:22px 4px 18px;cursor:pointer;border-bottom:1px solid rgba(91,82,73,.35)" onClick="{{ sv.onToggle }}">
+<span style="font-family:'Manrope',sans-serif;font-size:15px;font-weight:800;color:{{ sv.numColor }};letter-spacing:.02em">{{ sv.num }}</span>
+<span style="font-family:'Instrument Serif',serif;font-weight:400;font-size:23px;color:{{ sv.nameColor }};flex:1">{{ sv.name }}</span>
+</div>
+<div style="{{ sv.descWrapStyle }}">
+<p style="font-size:14px;line-height:1.65;color:#282d31;margin:20px 0 24px;max-width:440px">{{ sv.desc }}</p>
+</div>
+</div>
+</sc-for>
+</div>
+<div style="flex:1 1 380px;min-width:300px;position:sticky;top:110px;height:460px;border-radius:6px;overflow:hidden;background:#e7e0d5">
+<sc-if value="{{ hasActiveService }}" hint-placeholder-val="{{ false }}">
+<image-slot id="{{ activeServiceSlotId }}" shape="rect" placeholder="{{ activeServicePlaceholder }}" src="{{ activeServiceSrc }}" style="{{ activeImageStyle }}"></image-slot>
+<div style="position:absolute;left:0;right:0;bottom:0;padding:26px;background:linear-gradient(to top,rgba(20,18,15,.7),transparent);pointer-events:none">
+<span style="font-family:'Instrument Serif',serif;font-size:22px;color:#f1ede8">{{ activeServiceName }}</span>
+</div>
+</sc-if>
+
+</div>
+</div>
+</div>
+</section>
+
+<section data-reveal-id="diferenciais" style="{{ revealDiferenciais }}">
+<div style="max-width:1240px;margin:0 auto;padding:0 clamp(24px,5vw,56px)">
+<div style="display:grid;grid-template-columns:minmax(260px,360px) 1fr;gap:clamp(40px,6vw,88px)">
+<div style="display:flex;flex-direction:column;gap:30px;position:sticky;top:130px;align-self:start">
+<span style="font-family:'Manrope',sans-serif;font-size:11px;font-weight:700;letter-spacing:.16em;color:#9fae99;text-transform:uppercase">Por que a Novaera</span>
+<h2 style="font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(28px,3.6vw,40px);line-height:1.16;margin:0;color:#f1ede8">Não vendemos<br>render. Entregamos<br>obra fiel ao projeto.</h2>
+<p style="font-size:14px;line-height:1.65;color:#a9a29a;margin:0;max-width:320px">Quinze anos convertendo briefing em espaço construído — sem surpresas no meio do caminho.</p>
+<div style="display:flex;margin-top:6px">
+<div style="padding-right:26px;margin-right:26px;border-right:1px solid rgba(241,237,232,.2)"><span style="font-family:'Instrument Serif',serif;font-size:clamp(30px,3.6vw,42px);color:#d29a61;display:block;line-height:1">+50</span><span style="font-size:11px;color:#8a857c;letter-spacing:.04em">projetos<br>entregues</span></div>
+<div style="padding-right:26px;margin-right:26px;border-right:1px solid rgba(241,237,232,.2)"><span style="font-family:'Instrument Serif',serif;font-size:clamp(30px,3.6vw,42px);color:#d29a61;display:block;line-height:1">98%</span><span style="font-size:11px;color:#8a857c;letter-spacing:.04em">clientes<br>satisfeitos</span></div>
+<div><span style="font-family:'Instrument Serif',serif;font-size:clamp(30px,3.6vw,42px);color:#d29a61;display:block;line-height:1">15</span><span style="font-size:11px;color:#8a857c;letter-spacing:.04em">anos de<br>prática</span></div>
+</div>
+</div>
+<div style="display:flex;flex-direction:column;border-top:1px solid rgba(241,237,232,.18)">
+<sc-for list="{{ diffs }}" as="d" hint-placeholder-count="4">
+<div onMouseEnter="{{ d.enter }}" onMouseLeave="{{ d.leave }}" style="display:flex;align-items:center;gap:clamp(20px,3vw,36px);padding:30px 0;border-bottom:1px solid rgba(241,237,232,.18);flex-wrap:wrap" style-hover="background-color:rgba(241,237,232,.04)">
+<span style="font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(38px,4.5vw,54px);line-height:1;color:transparent;-webkit-text-stroke:1px rgba(210,154,97,.6);flex:none;width:64px">{{ d.idx }}</span>
+<div style="flex:1 1 240px;min-width:180px;display:flex;flex-direction:column;gap:8px">
+<span style="font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(19px,2vw,23px);color:#f1ede8">{{ d.title }}</span>
+<span style="font-size:14px;color:#a9a29a;line-height:1.6;max-width:420px">{{ d.desc }}</span>
+</div>
+<div style="{{ d.imgWrapStyle }}">
+<image-slot id="{{ d.imgSlotId }}" shape="rect" placeholder="{{ d.imgPlaceholder }}" src="{{ d.imgSrc }}" style="width:100%;height:100%;object-fit:cover"></image-slot>
+</div>
+</div>
+</sc-for>
+</div>
+</div>
+</div>
+</section>
+
+<section data-reveal-id="antes-depois" style="{{ revealAntesDepois }}">
+<div style="max-width:1240px;margin:0 auto;padding:0 clamp(24px,5vw,56px)">
+<h2 style="font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(26px,3vw,34px);margin:0 0 12px;color:#5b5249">Antes e depois</h2>
+<p style="font-size:14px;color:#8a857c;margin:0 0 34px">Reforma de apartamento · retrofit completo em 4 meses</p>
+<sc-if value="{{ sliderMode }}" hint-placeholder-val="{{ true }}">
+<div onPointerDown="{{ onSliderDown }}" onPointerMove="{{ onSliderMove }}" onPointerUp="{{ onSliderUp }}" style="position:relative;width:100%;aspect-ratio:16/9;max-width:900px;margin:0 auto;overflow:hidden;border-radius:2px;cursor:ew-resize;user-select:none">
+<div style="position:absolute;inset:0"><image-slot id="antes-depois-before" shape="rect" placeholder="Antes" src="uploads/assets/SuhwWTjHa3isUKh2gSTzY3knEuxC4WzKIQR1rfkhk_5OO5lF8QjJ_5ozNBDtQPxVJfL6wG8PRICQMFZ1ola_opRqeBbme3zNp6vjPCKXqVhgkf_xBPQlAzvZr1cOgGzvqs5gsqi_4iiCKm_8OxpmBN_IbAukgJSvpzYtxt_ctKyx-DKp4Z8ytVPHwjxPYEjG.jpg"></image-slot></div>
+<div style="{{ afterClipStyle }}"><image-slot id="antes-depois-after" shape="rect" placeholder="Depois" src="uploads/assets/jRBaHp9myx4c8DnCHbxfxEEfhRTEuEDmLB2OQjb3nbprhDbKv1V9n24DRPhafePQqokFsuv2myx1kGizytAAnTfzNLzkv9FdSwrGSWnayeNvR99i3Vai9mFasSnUR5AbnbfxNVgx08ue2daXm2GG98KkmT2N6i9tsRn03HmmRZu1T98pU-uE1V_E_vLjejNA.jpg"></image-slot></div>
+<div style="{{ handleStyle }}">
+<div style="width:2px;height:100%;background:#f1ede8;margin:0 auto"></div>
+<div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:36px;height:36px;border-radius:50%;background:#f1ede8;display:flex;align-items:center;justify-content:center;font-size:14px;color:#282d31">↔</div>
+</div>
+</div>
+</sc-if>
+<sc-if value="{{ sideBySideMode }}" hint-placeholder-val="{{ false }}">
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;max-width:900px;margin:0 auto">
+<div><div style="aspect-ratio:4/3"><image-slot id="antes-depois-side-before" shape="rect" placeholder="Antes"></image-slot></div><span style="font-size:12px;color:#8a857c;display:block;margin-top:8px">Antes</span></div>
+<div><div style="aspect-ratio:4/3"><image-slot id="antes-depois-side-after" shape="rect" placeholder="Depois"></image-slot></div><span style="font-size:12px;color:#8a857c;display:block;margin-top:8px">Depois</span></div>
+</div>
+</sc-if>
+</div>
+</section>
+
+<section id="faq" data-reveal-id="faq-header" style="{{ revealFaqHeader }}">
+<div style="max-width:1240px;margin:0 auto;padding:0 clamp(24px,5vw,56px);display:flex;gap:clamp(32px,6vw,80px);align-items:flex-start;flex-wrap:wrap">
+<div style="flex:1 1 380px;min-width:280px;position:sticky;top:110px;aspect-ratio:4/5;border-radius:2px;overflow:hidden;transition:transform .6s ease" style-hover="transform:scale(1.05)">
+<image-slot id="faq-image" shape="rect" placeholder="Equipe no escritório" src="uploads/assets/JcgoZZfpsX-Rn2JBQ4593wYmUEUfdvgv4oH6Q315leMatuffiFeFrN665j4N0C1SvOH3LCZL1E-zUsJ0fpsQsTXmev_FhLs-ujDyebdmWObAzJTAXqMY1-pTvvrivJdtsGWMGQ6Ix9St7jxPpNrccD4TYEI9Of16KDxKouNZM-I.jpg" style="width:100%;height:100%;object-fit:cover"></image-slot>
+</div>
+<div style="flex:1.3 1 420px;min-width:280px;display:flex;flex-direction:column;gap:8px">
+<span style="font-family:'Manrope',sans-serif;font-size:11px;font-weight:700;letter-spacing:.16em;color:#6f7d6a;text-transform:uppercase">Dúvidas</span>
+<h2 style="font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(28px,3.4vw,38px);margin:6px 0 0;color:#5b5249;line-height:1.15">Perguntas frequentes</h2>
+<p style="font-size:14px;line-height:1.65;color:#8a857c;margin:14px 0 30px;max-width:420px">O que clientes mais nos perguntam antes de fechar um projeto — se faltar algo aqui, é só falar com a gente.</p>
+<sc-for list="{{ faqItems }}" as="f" hint-placeholder-count="6">
+<div data-reveal-id="{{ f.revealId }}" style="{{ f.itemStyle }}">
+<div onClick="{{ f.toggle }}" style="display:flex;justify-content:space-between;align-items:center;cursor:pointer;gap:16px">
+<span style="font-size:16px;font-weight:600;color:#282d31">{{ f.question }}</span>
+<span style="font-size:18px;color:#d29a61;flex:none;transition:transform .3s ease;{{ f.iconTransform }}">⌄</span>
+</div>
+<div style="{{ f.answerStyle }}"><p style="font-size:14px;line-height:1.6;color:#282d31;margin:12px 0 0;max-width:460px">{{ f.answer }}</p></div>
+</div>
+</sc-for>
+</div>
+</div>
+</section>
+
+<section id="contato" data-reveal-id="contato" style="{{ revealContato }}">
+<svg style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none" viewBox="0 0 1200 600" preserveAspectRatio="none" fill="none">
+<sc-for list="{{ flowPaths }}" as="p" hint-placeholder-count="18">
+<path d="{{ p.d }}" fill="none" style="{{ p.pathStyle }}"></path>
+</sc-for>
+</svg>
+<div style="max-width:1240px;margin:0 auto;padding:0 clamp(24px,5vw,56px);position:relative;z-index:1">
+<h2 style="font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(30px,4vw,44px);margin:0 0 44px;color:#5b5249;text-align:center">Vamos construir seu projeto?</h2>
+<div style="display:flex;gap:clamp(32px,6vw,72px);flex-wrap:wrap">
+<div style="flex:1 1 380px;min-width:300px;display:flex;flex-direction:column;gap:14px;background:rgba(241,237,232,.55);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.5);border-radius:14px;padding:clamp(28px,4vw,44px);box-shadow:0 20px 50px rgba(40,45,49,.08)">
+<input placeholder="Nome" style="border:none;border-bottom:1.5px solid rgba(40,45,49,.25);background:transparent;padding:12px 0;font-size:15px;font-family:'Manrope',sans-serif;color:#282d31">
+<input placeholder="E-mail" style="border:none;border-bottom:1.5px solid rgba(40,45,49,.25);background:transparent;padding:12px 0;font-size:15px;font-family:'Manrope',sans-serif;color:#282d31">
+<input placeholder="Telefone" style="border:none;border-bottom:1.5px solid rgba(40,45,49,.25);background:transparent;padding:12px 0;font-size:15px;font-family:'Manrope',sans-serif;color:#282d31">
+<select style="border:none;border-bottom:1.5px solid rgba(40,45,49,.25);background:transparent;padding:12px 0;font-size:15px;font-family:'Manrope',sans-serif;color:#8a857c">
+<option>Tipo de projeto</option><option>Residencial</option><option>Comercial</option><option>Reforma</option>
+</select>
+<textarea placeholder="Mensagem" rows="3" style="border:none;border-bottom:1.5px solid rgba(40,45,49,.25);background:transparent;padding:12px 0;font-size:15px;font-family:'Manrope',sans-serif;color:#282d31;resize:none"></textarea>
+<button onPointerMove="{{ magnetMove }}" onPointerEnter="{{ originEnter }}" onPointerLeave="{{ magnetLeave }}" data-base-color="#282d31" data-hover-color="#f1ede8" style="position:relative;overflow:hidden;align-self: flex-start; margin-top: 8px; background: #d29a61; color: #282d31; font-size: 14px; font-weight: 700; padding: 14px 30px; border: none; border-radius: 14px; cursor: pointer; transition: transform .25s cubic-bezier(.2,1,.3,1), color .3s ease, box-shadow .3s ease" style-hover="box-shadow:0 10px 24px rgba(210,154,97,.4)"><span data-fill="true" style="position:absolute;left:0;top:0;width:0;height:0;border-radius:50%;background:#282d31;transform:translate(-50%,-50%) scale(0);transition:transform .5s cubic-bezier(.16,1,.3,1);pointer-events:none"></span><span style="position:relative;z-index:1">Enviar mensagem</span></button>
+</div>
+<div style="flex:1 1 320px;min-width:280px;display:flex;flex-direction:column;gap:22px">
+<div style="aspect-ratio:4/3;overflow:hidden;border-radius:20px;transition:transform .6s ease" style-hover="transform:scale(1.06)"><image-slot id="contato-mapa" shape="rect" placeholder="Nosso escritório" src="uploads/assets/8RtPqF2_E3UelnI3ch70t0yLSKeqgqIlh8xHS_doUf3EC5sRsQFyMrQ9Clwun8Yjt0FLtE-cRz6yW1x8Nq0Ai0XRGV4NbMq1jGMwhFx2lpw552zUda9OhI402wW7U7Nt5FyIWTUGeMY5waoZr99IzEQSxwYIP4BE_5uh28jkakM.jpg" style="width:100%;height:100%;object-fit:cover"></image-slot></div>
+<a href="{{ whatsappLink }}" onPointerMove="{{ magnetMove }}" onPointerEnter="{{ originEnter }}" onPointerLeave="{{ magnetLeave }}" data-base-color="#f1ede8" data-hover-color="#f1ede8" style="position:relative;overflow:hidden;display: flex; align-items: center; justify-content: center; gap: 10px; color: #f1ede8; font-size: 14px; font-weight: 700; padding: 16px; border-radius: 14px; flex-grow: 2; background-color: #4D8459; transition: transform .25s cubic-bezier(.2,1,.3,1), box-shadow .3s ease" style-hover="box-shadow:0 10px 24px rgba(77,132,89,.4)"><span data-fill="true" style="position:absolute;left:0;top:0;width:0;height:0;border-radius:50%;background:#3c6a46;transform:translate(-50%,-50%) scale(0);transition:transform .5s cubic-bezier(.16,1,.3,1);pointer-events:none"></span><span style="position:relative;z-index:1">Falar no WhatsApp</span></a><div style="display:flex;flex-direction:column;gap:4px;font-size:13px;color:#8a857c">
+<span>Seg–Sex, 9h–18h</span>
+<span>@novaera.arquitetura</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<footer style="padding: 32px clamp(24px,5vw,56px); border-top: 1px solid rgba(40,45,49,.12); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; font-size: 12px; color: #8a857c; border-radius: 14px; position: relative">
+<span>© 2026 Novaera Arquitetura</span>
+<b style="font-family: Instrument Serif; font-size: 100px; width: 386px; height: 52px">Novaera</b><span>São Paulo, Brasil</span>
+<div style="font-size: 16px; line-height: 1; font-family: Manrope, sans-serif; position: absolute; left: 584px; top: 27px"></div></footer>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;whatsappNumber&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;5511999999999&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;beforeAfterMode&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;default&quot;:&quot;slider&quot;,&quot;options&quot;:[&quot;slider&quot;,&quot;side-by-side&quot;],&quot;tsType&quot;:&quot;string&quot;}}">
+const SHOWCASE = [
+  {name:'Casa Lumen', category:'Residencial', slotId:'sc-1', src:'uploads/assets/XWjZ8Sde7wH5tr_kXB9wqxn1pyMY0YCLTWEJ60HaMoHyrle59py05uN-sqevbDgL6hmHv2-kEJaUQwoJftwZYdeKS2TtU5RnT2uy-338iD5afIRMsZlaVZLhhf1vtUei4N7eWlThnNgGAeFqD74hfW4ULj74HLK6SfS3pkfM0RoIzCDtZ6m1-ZVqL0cGEVzr.jpeg'},
+  {name:'Loja Vero', category:'Comercial', slotId:'sc-2', src:'uploads/assets/FJzJRSHQjdQVXk3PKNFYKRvH3pmXbSCN-nQCXEsunBJT6Jq1yNd5Swr8b85zaiLu0nGWcNnYyACP-8g7SVt8W5n1JCUDtaH773s5sJcz7kKatrwCto253DBCSYEfV29XT6-aUpkHsUb830lK9pNwKZhUH4gCiAVC6to_UeaZO7EegAthm6NrPeurNnuv_G56.jpg'},
+  {name:'Reforma Alto', category:'Reforma', slotId:'sc-3', src:'uploads/assets/wlRNqFIAPNMnVK3bXHfraTyndbS47BxShA2oQMfjdMuLzfrIK677BGTENvoHLKitMuQV9D83YcliwDqxAr_CGYAYuCq7LYLDyY6RtKGBN7ZlpKw5P1Ye1a1Kkxh_I8KHNhiG6Ut8fenIKTSS0pehVMSLfZX9W1o1Kn449iZ76FfZWSM-ag1zDc9lY2r0DD4k.jpeg'},
+  {name:'Casa Marbre', category:'Residencial', slotId:'sc-4', src:'uploads/assets/O4wy0gVkj5eRmaPhYQ_sGXNok16yqpCp7vKa0XoZkPIzood0WemKxxDIoEY97KQNl8zpCdEJQj3XgjUf8iz60bRzRr2_Kx_28jbf2nU7G7AAPW3N0hArSkHWsY_I_sipsIx8sBzS6vTQDITcRkTPtU3FESM_CmlFA-rIliyFe08HtNBD4EF0rL4-XF7-tRc-.jpeg'},
+  {name:'Studio Grange', category:'Comercial', slotId:'sc-5', src:'uploads/assets/jRBaHp9myx4c8DnCHbxfxEEfhRTEuEDmLB2OQjb3nbprhDbKv1V9n24DRPhafePQqokFsuv2myx1kGizytAAnTfzNLzkv9FdSwrGSWnayeNvR99i3Vai9mFasSnUR5AbnbfxNVgx08ue2daXm2GG98KkmT2N6i9tsRn03HmmRZu1T98pU-uE1V_E_vLjejNA-1.jpg'},
+  {name:'Cobertura Ipê', category:'Reforma', slotId:'sc-6', src:'uploads/assets/v9jjoMMN0wNX6yM8p-_J10zMoUJIftGPcyl1LyBqIQESI7w0ZPUKiWDvKZ0w22kBNcS1uF_Hz228NPEiZfmbEgyiXrid8bvBFkax9W2u_uvzF3hb6NDYcJfSQ4zakn1lEXwab2HC_rZu_PW9xCFfc5LqnDN1uv3Ra4eSGbrUTm-fDbykZMfmL2ZO92cc3hJh.jpeg'}
+];
+const CASES = [
+  {name:'Casa Lumen', location:'São Paulo, SP', area:'280m²', category:'Residencial', result:'Entrega 2 meses antes do prazo', slotId:'case-1', src:'uploads/assets/95726d81-cc87-4824-bda7-0174a10f1437.jpeg'},
+  {name:'Loja Vero', location:'São Paulo, SP', area:'90m²', category:'Comercial', result:'Reduziu custo de obra em 18%', slotId:'case-2', src:'uploads/assets/fvk5WlNRFezN88e-y-T7GPqxV4xXx5Oi1qAWqfEkkbj60vq6GXTbyamV6Vssc8ExrNv7550LID-sChoQuntOFptp-R5H-cUiHtE4idHaf9q2RJuIZ41rcwECsCQzR2BLOdEf7kLpigKfpUC91v-J7sXI6_2XdG11hqs7UvxPW5VhwLyeotR17vUXes-3ViKm.jpg'},
+  {name:'Reforma Alto', location:'Rio de Janeiro, RJ', area:'140m²', category:'Reforma', result:'Retrofit completo, conceito preservado', slotId:'case-3', src:'uploads/assets/hwRD9-Sd33AHj1vc6_6J5e5bLBuLDIC4fv_o5CBT95_WmbcaMlCINxjciKB60mU11nj72Eie_ekRYUDK9qDT_cQZMgelPTMlza0eMziuEwm7yOeJUwZVSBTyyoSQv_NJleNLl9rw92D9qULfXqc_n4HV3MRCu6ALZfYecMc7-3w.jpg'},
+  {name:'Casa Marbre', location:'Campinas, SP', area:'320m²', category:'Residencial', result:'Certificação de eficiência energética', slotId:'case-4', src:'uploads/assets/D4FogBe-D7PqBsYuQnCrnFPyqaz-AQQIX37mdnrxoHse8K8rrMJCVneDcy4v2oifuoAaLFQlt9FcdLK1LMAPYHwt8V1QT0rQVZ6ozvJtZ1qnkRmGzbzyp_tfRNNsOkear84ZaC5hsoJ17Zwzkei4PlWGxx58TyevZ51v7bArGTFZFyGJ98n1m2u12iLuoEi8.jpg'},
+  {name:'Studio Grange', location:'São Paulo, SP', area:'150m²', category:'Comercial', result:'+40% de fluxo de clientes', slotId:'case-5', src:'uploads/assets/rEz93WhYyfLZ_BEaYqCthINk05M7J-Wspi33T3jGKqV6VjoLPsImdBvxMAOKrf4XQo_r0pxaYOiSt1XreEL7zE2MMhUGR3K-eJDNIgYbNT_0xt7gBtaNmVWlUVINWatdq9dw0J3WEL2LuAK1zroEm3oXEU4I-p5PZ43HxiIOt6eXbKCgz3887xygeg2f1eul.jpg'},
+  {name:'Cobertura Ipê', location:'São Paulo, SP', area:'110m²', category:'Reforma', result:'Ampliação de área útil em 25%', slotId:'case-6', src:'uploads/assets/hzaD1Wpv16pwYKqBIU4box3yUhAQvKYqG3RUVoQws-IIFMl0v6FHOJb2XFSTPoXHrSJKlFyFVQJyPcynJCRm-maHoYhs392Vhkd47yJR8jIf03RrViqKCYrS21ode9-FGfYuBggozkEzlWNQs99xCsXAF7rZM9uXbRK1308JdOnNwkNYzDeSMH5r4YO-qUFr.jpeg'}
+];
+const STEPS = [
+  {n:'01', roman:'I', short:'Escuta', title:'Escuta e levantamento', desc:'Visitamos o terreno ou o espaço, ouvimos rotina, orçamento e restrições reais antes de esboçar qualquer linha.', imgPlaceholder:'Reunião de briefing', imgSrc:'uploads/assets/bya9SXmU_dGuCrrw8eveeIqTgZgGMW4csb-VY2G1uvKha3F8IMbm5bMbDPnAXgnW-tsoVC5YJJ33hjQ2QNVRNZgaq0XnJsmrW6MXTm7gDDwSDeJsR64KTJyqFmZ7ZGT2U2VXAEvaSjkxmvRPPkUmmH2ywddrug-3VO3Nk1qPxeSfxQMg9FXW4dBSZpHAaePZ.jpg'},
+  {n:'02', roman:'II', short:'Estudo', title:'Estudo preliminar', desc:'Volumetria e primeiras plantas em 2 a 3 alternativas, discutidas linha a linha com você.', imgPlaceholder:'Estudo de volumetria', imgSrc:'uploads/assets/XWjZ8Sde7wH5tr_kXB9wqxn1pyMY0YCLTWEJ60HaMoHyrle59py05uN-sqevbDgL6hmHv2-kEJaUQwoJftwZYdeKS2TtU5RnT2uy-338iD5afIRMsZlaVZLhhf1vtUei4N7eWlThnNgGAeFqD74hfW4ULj74HLK6SfS3pkfM0RoIzCDtZ6m1-ZVqL0cGEVzr.jpeg'},
+  {n:'03', roman:'III', short:'Aprovação', title:'Anteprojeto e aprovação', desc:'Detalhamento do conceito escolhido e trâmite junto à prefeitura e aos órgãos competentes.', imgPlaceholder:'Anteprojeto aprovado', imgSrc:'uploads/assets/FJzJRSHQjdQVXk3PKNFYKRvH3pmXbSCN-nQCXEsunBJT6Jq1yNd5Swr8b85zaiLu0nGWcNnYyACP-8g7SVt8W5n1JCUDtaH773s5sJcz7kKatrwCto253DBCSYEfV29XT6-aUpkHsUb830lK9pNwKZhUH4gCiAVC6to_UeaZO7EegAthm6NrPeurNnuv_G56.jpg'},
+  {n:'04', roman:'IV', short:'Executivo', title:'Projeto executivo', desc:'Cada acabamento, instalação e detalhe construtivo documentado para a obra não parar.', imgPlaceholder:'Detalhamento técnico', imgSrc:'uploads/assets/hwRD9-Sd33AHj1vc6_6J5e5bLBuLDIC4fv_o5CBT95_WmbcaMlCINxjciKB60mU11nj72Eie_ekRYUDK9qDT_cQZMgelPTMlza0eMziuEwm7yOeJUwZVSBTyyoSQv_NJleNLl9rw92D9qULfXqc_n4HV3MRCu6ALZfYecMc7-3w.jpg'},
+  {n:'05', roman:'V', short:'Obra', title:'Acompanhamento de obra', desc:'Visitas semanais em obra para garantir que o que foi desenhado é o que se constrói.', imgPlaceholder:'Visita técnica em obra', imgSrc:'uploads/assets/D4FogBe-D7PqBsYuQnCrnFPyqaz-AQQIX37mdnrxoHse8K8rrMJCVneDcy4v2oifuoAaLFQlt9FcdLK1LMAPYHwt8V1QT0rQVZ6ozvJtZ1qnkRmGzbzyp_tfRNNsOkear84ZaC5hsoJ17Zwzkei4PlWGxx58TyevZ51v7bArGTFZFyGJ98n1m2u12iLuoEi8.jpg'},
+  {n:'06', roman:'VI', short:'Entrega', title:'Entrega e vistoria', desc:'Vistoria conjunta, ajustes finos e as chaves nas suas mãos — sem pendências.', imgPlaceholder:'Projeto entregue', imgSrc:'uploads/assets/hzaD1Wpv16pwYKqBIU4box3yUhAQvKYqG3RUVoQws-IIFMl0v6FHOJb2XFSTPoXHrSJKlFyFVQJyPcynJCRm-maHoYhs392Vhkd47yJR8jIf03RrViqKCYrS21ode9-FGfYuBggozkEzlWNQs99xCsXAF7rZM9uXbRK1308JdOnNwkNYzDeSMH5r4YO-qUFr.jpeg'}
+];
+const SERVICES = [
+  {name:'Projeto residencial', desc:'Do estudo preliminar ao projeto executivo, desenvolvemos casas e apartamentos que equilibram funcionalidade, conforto e identidade — sempre partindo da rotina de quem vai morar no espaço.', slotId:'sv-residencial', placeholder:'Foto de projeto residencial', src:'uploads/assets/O4wy0gVkj5eRmaPhYQ_sGXNok16yqpCp7vKa0XoZkPIzood0WemKxxDIoEY97KQNl8zpCdEJQj3XgjUf8iz60bRzRr2_Kx_28jbf2nU7G7AAPW3N0hArSkHWsY_I_sipsIx8sBzS6vTQDITcRkTPtU3FESM_CmlFA-rIliyFe08HtNBD4EF0rL4-XF7-tRc-.jpeg'},
+  {name:'Projeto comercial', desc:'Projetos para lojas, escritórios e espaços institucionais que traduzem a marca do cliente em experiência espacial, com atenção a fluxo, acessibilidade e normas de uso.', slotId:'sv-comercial', placeholder:'Foto de projeto comercial', src:'uploads/assets/FJzJRSHQjdQVXk3PKNFYKRvH3pmXbSCN-nQCXEsunBJT6Jq1yNd5Swr8b85zaiLu0nGWcNnYyACP-8g7SVt8W5n1JCUDtaH773s5sJcz7kKatrwCto253DBCSYEfV29XT6-aUpkHsUb830lK9pNwKZhUH4gCiAVC6to_UeaZO7EegAthm6NrPeurNnuv_G56.jpg'},
+  {name:'Reforma', desc:'Retrofit e ampliação de espaços já construídos, com diagnóstico técnico completo e soluções que atualizam o imóvel sem perder o que já funciona bem nele.', slotId:'sv-reforma', placeholder:'Foto de reforma', src:'uploads/assets/Y9aL_mDklY4FxNY11YG3BuKdSo5GqnfaQCVizm5FFz82iLCGidWFTg9ACvSGCQPdUQFumO418zm-oxox0_sKCil7g6nXnbe78kUsZXLXzZHzo2_yhvN48NTFbjEGPALsGwM5swDjPnr0oEthIgKnw89Un0a3k6ufnl_dZ4yw6kBekkrgbYCLor93eH99_7DN.jpg'},
+  {name:'Interiores', desc:'Design de interiores desenvolvido junto do projeto arquitetônico, cobrindo marcenaria, iluminação, revestimentos e curadoria de mobiliário até a entrega final.', slotId:'sv-interiores', placeholder:'Foto de projeto de interiores', src:'uploads/assets/9T_p7o99tLLq8Ux3t9LPUI91MGTihsFoLM3aNR7V6X0V5zkqmPnQtAniQ7zt3kkzWS4Jf8XbCWwRJb7lg3w6DN4xJubsK5tOFb8PodvKuqR-BWaO9Po3swO7vFn0y_Bf2zpHZChZLV5Pecu6GN1jomzemfQbxL8p3qWksSaCtBCG2SyIM3eDbpoZbMVAiCsX.jpg'},
+  {name:'Consultoria', desc:'Apoio técnico pontual para projetos conduzidos por outros escritórios ou equipes internas, com revisão de soluções, viabilidade e compatibilização entre disciplinas.', slotId:'sv-consultoria', placeholder:'Foto de consultoria técnica', src:'uploads/assets/_At8cLcsFbtDWn-CMfLdUyE01zpV-mKo-z8XC89-wMJLjPeOS8RM21NvlyVe0pCnJRm_MhyzYukuKmQFRd0emDsQ-3kJIRSUphNXLjE63oQmvqQKF3wQZxT6vUDRNSoJ2MrSQACEfwslZdD9wahQMV15iAIUGYfg52Ji3eCpHjksb8LNNL8xmjZNtJD0pfsF.jpg'},
+  {name:'Gerenciamento de obra', desc:'Acompanhamento completo da execução em campo, da contratação de fornecedores ao controle de cronograma e orçamento, garantindo fidelidade ao projeto aprovado.', slotId:'sv-obra', placeholder:'Foto de gerenciamento de obra', src:'uploads/assets/8yspP9Tl1Tmw-yP4WisTwBYEKAtqECzRG57R9PTlo0zmCpfS6DuxPA2NvhlEjSMcT1v4_MFl88PXHF6rRJPutpCKjzyefBAZCt9M0DRTnT8kv874ejem8Z4y6hb5xAzwcvQuKibY8WrNMe_wevM0dR8-VoZbD5gJaC7oMS1TP1DA-ogIbk0PdMuaIIhek65h.jpg'}
+];
+const DIFFS = [
+  {idx:'01', title:'Metodologia própria', desc:'Processo estruturado do briefing à entrega, com prazos claros e etapas de aprovação definidas antes de começar.', imgPlaceholder:'Metodologia própria', imgSrc:'uploads/assets/95726d81-cc87-4824-bda7-0174a10f1437.jpeg'},
+  {idx:'02', title:'Sustentabilidade', desc:'Materiais e soluções de baixo impacto avaliados em todos os projetos, sem custo extra escondido no orçamento.', imgPlaceholder:'Sustentabilidade', imgSrc:'uploads/assets/fvk5WlNRFezN88e-y-T7GPqxV4xXx5Oi1qAWqfEkkbj60vq6GXTbyamV6Vssc8ExrNv7550LID-sChoQuntOFptp-R5H-cUiHtE4idHaf9q2RJuIZ41rcwECsCQzR2BLOdEf7kLpigKfpUC91v-J7sXI6_2XdG11hqs7UvxPW5VhwLyeotR17vUXes-3ViKm.jpg'},
+  {idx:'03', title:'Tecnologia 3D/VR', desc:'Visualização imersiva do espaço antes da obra começar, para decidir acabamentos com segurança.', imgPlaceholder:'Tecnologia 3D/VR', imgSrc:'uploads/assets/D4FogBe-D7PqBsYuQnCrnFPyqaz-AQQIX37mdnrxoHse8K8rrMJCVneDcy4v2oifuoAaLFQlt9FcdLK1LMAPYHwt8V1QT0rQVZ6ozvJtZ1qnkRmGzbzyp_tfRNNsOkear84ZaC5hsoJ17Zwzkei4PlWGxx58TyevZ51v7bArGTFZFyGJ98n1m2u12iLuoEi8.jpg'},
+  {idx:'04', title:'Time multidisciplinar', desc:'Arquitetos, engenheiros e designers de interiores sob um só teto — uma única equipe responsável do início ao fim.', imgPlaceholder:'Time multidisciplinar', imgSrc:'uploads/assets/rEz93WhYyfLZ_BEaYqCthINk05M7J-Wspi33T3jGKqV6VjoLPsImdBvxMAOKrf4XQo_r0pxaYOiSt1XreEL7zE2MMhUGR3K-eJDNIgYbNT_0xt7gBtaNmVWlUVINWatdq9dw0J3WEL2LuAK1zroEm3oXEU4I-p5PZ43HxiIOt6eXbKCgz3887xygeg2f1eul.jpg'}
+];
+const FLOW_PATHS = Array.from({ length: 18 }, (_, i) => {
+  const yBase = 20 + i * 34;
+  const amp = 55 + (i % 5) * 20;
+  const warm = i % 3 === 0;
+  return {
+    d: `M -80 ${yBase} C 220 ${yBase - amp}, 480 ${yBase + amp}, 760 ${yBase - amp / 2} S 1180 ${yBase + amp}, 1280 ${yBase}`,
+    stroke: warm ? '#d29a61' : '#6f7d6a',
+    width: (0.6 + (i % 4) * 0.22).toFixed(2),
+    opacity: (0.14 + (i % 6) * 0.03).toFixed(3),
+    dur: 22 + (i % 7) * 4,
+    delay: -(i * 1.6).toFixed(1)
+  };
+});
+const FAQ = [
+  {question:'Qual o prazo médio de um projeto?', answer:'Varia por complexidade: projetos residenciais levam de 3 a 6 meses até o executivo; reformas costumam ser mais rápidas.'},
+  {question:'Como funciona o orçamento?', answer:'Após o briefing, enviamos uma proposta com escopo, prazo e valor por etapa — sem surpresas ao longo do projeto.'},
+  {question:'Atendem outras cidades?', answer:'Sim, atendemos projetos em todo o Brasil, com visitas técnicas programadas conforme a fase da obra.'},
+  {question:'Vocês acompanham a execução da obra?', answer:'Sim, oferecemos acompanhamento periódico ou gerenciamento completo, dependendo do pacote contratado.'},
+  {question:'É possível reformar mantendo os moradores no local?', answer:'Em muitos casos sim — planejamos as etapas para minimizar o impacto na rotina durante a obra.'},
+  {question:'Fazem só o projeto ou também a execução?', answer:'Fazemos ambos: projeto isolado, ou projeto com gerenciamento/execução da obra, conforme sua necessidade.'}
+];
+const TYPES = ['Todos','Residencial','Comercial','Reforma'];
+const ABOUT_STACK = [
+  {slotId:'sobre-equipe', tag:'Nossa equipe', caption:'Arquitetos e designers sob um só teto', placeholder:'Equipe no escritório', src:'uploads/assets/JcgoZZfpsX-Rn2JBQ4593wYmUEUfdvgv4oH6Q315leMatuffiFeFrN665j4N0C1SvOH3LCZL1E-zUsJ0fpsQsTXmev_FhLs-ujDyebdmWObAzJTAXqMY1-pTvvrivJdtsGWMGQ6Ix9St7jxPpNrccD4TYEI9Of16KDxKouNZM-I.jpg'},
+  {slotId:'sobre-obra', tag:'Em obra', caption:'Acompanhamento próximo em cada etapa', placeholder:'Visita técnica em obra', src:'uploads/assets/8yspP9Tl1Tmw-yP4WisTwBYEKAtqECzRG57R9PTlo0zmCpfS6DuxPA2NvhlEjSMcT1v4_MFl88PXHF6rRJPutpCKjzyefBAZCt9M0DRTnT8kv874ejem8Z4y6hb5xAzwcvQuKibY8WrNMe_wevM0dR8-VoZbD5gJaC7oMS1TP1DA-ogIbk0PdMuaIIhek65h.jpg'},
+  {slotId:'sobre-cliente', tag:'Com o cliente', caption:'Escuta antes do desenho', placeholder:'Reunião com cliente', src:'uploads/assets/bya9SXmU_dGuCrrw8eveeIqTgZgGMW4csb-VY2G1uvKha3F8IMbm5bMbDPnAXgnW-tsoVC5YJJ33hjQ2QNVRNZgaq0XnJsmrW6MXTm7gDDwSDeJsR64KTJyqFmZ7ZGT2U2VXAEvaSjkxmvRPPkUmmH2ywddrug-3VO3Nk1qPxeSfxQMg9FXW4dBSZpHAaePZ.jpg'}
+];
+
+class Component extends DCLogic {
+  _trail = { i: 0, x: 0, y: 0, z: 1 };
+  trailMove = (e) => {
+    const host = e.currentTarget;
+    const imgs = host.querySelectorAll('[data-trail]');
+    if (!imgs.length) return;
+    imgs.forEach(im => { const s = im.getAttribute('data-src'); if (s && !s.includes('{{') && im.getAttribute('src') !== s) im.setAttribute('src', s); });
+    const t = this._trail;
+    if (Math.hypot(e.clientX - t.x, e.clientY - t.y) < window.innerWidth / 22) return;
+    t.x = e.clientX; t.y = e.clientY;
+    const r = host.getBoundingClientRect();
+    const lead = imgs[t.i % imgs.length];
+    const tail = imgs[(t.i - 4 + imgs.length * 2) % imgs.length];
+    if (t.z > 40) t.z = 1;
+    lead.style.zIndex = String(t.z++);
+    lead.style.left = (e.clientX - r.left) + 'px';
+    lead.style.top = (e.clientY - r.top) + 'px';
+    lead.style.opacity = '1';
+    lead.style.transform = `translate(-50%,-50%) scale(1) rotate(${(t.i % 5 - 2) * 2.4}deg)`;
+    if (tail && tail !== lead) { tail.style.opacity = '0'; tail.style.transform = 'translate(-50%,-50%) scale(.5)'; }
+    t.i++;
+  };
+  trailLeave = (e) => {
+    e.currentTarget.querySelectorAll('[data-trail]').forEach(im => {
+      im.style.opacity = '0';
+      im.style.transform = 'translate(-50%,-50%) scale(.5)';
+    });
+  };
+  magnetMove = (e) => {
+    const el = e.currentTarget;
+    const r = el.getBoundingClientRect();
+    const x = (e.clientX - (r.left + r.width / 2)) * 0.35;
+    const y = (e.clientY - (r.top + r.height / 2)) * 0.35;
+    el.style.transform = `translate(${x}px, ${y}px) scale(1.07)`;
+  };
+  magnetLeave = (e) => {
+    e.currentTarget.style.transform = '';
+    const el = e.currentTarget, fill = el.querySelector('[data-fill]');
+    if (fill) fill.style.transform = 'translate(-50%,-50%) scale(0)';
+    if (el.dataset.baseColor) el.style.color = el.dataset.baseColor;
+  };
+  originEnter = (e) => {
+    const el = e.currentTarget, fill = el.querySelector('[data-fill]');
+    if (!fill) return;
+    const r = el.getBoundingClientRect();
+    const x = e.clientX - r.left, y = e.clientY - r.top;
+    const d = Math.ceil(2 * Math.max(Math.hypot(x, y), Math.hypot(r.width - x, y), Math.hypot(x, r.height - y), Math.hypot(r.width - x, r.height - y)));
+    fill.style.width = d + 'px';
+    fill.style.height = d + 'px';
+    fill.style.left = x + 'px';
+    fill.style.top = y + 'px';
+    fill.style.transform = 'translate(-50%,-50%) scale(1)';
+    if (el.dataset.hoverColor) el.style.color = el.dataset.hoverColor;
+  };
+  state = { hoveredStep: null, hoveredDiff: null, scrolled: false, filter: 'Todos', openFaq: 0, sliderPos: 55, heroProgress: 0, heroExpanded: false, heroShowContent: false, showcaseHover: 0, revealed: {}, casesPaused: false, activeService: null };
+
+  componentDidMount() {
+    window.addEventListener('scroll', this.handleScroll);
+    window.addEventListener('wheel', this.onHeroWheel, { passive: false });
+    window.addEventListener('touchstart', this.onHeroTouchStart, { passive: false });
+    window.addEventListener('touchmove', this.onHeroTouchMove, { passive: false });
+    window.addEventListener('touchend', this.onHeroTouchEnd);
+    this._observed = new WeakSet();
+    this._io = new IntersectionObserver((entries) => {
+      let changed = false;
+      const upd = {};
+      entries.forEach(e => {
+        const id = e.target.getAttribute('data-reveal-id');
+        if (!id) return;
+        const on = e.isIntersecting;
+        if (!!this.state.revealed[id] !== on) { upd[id] = on; changed = true; }
+      });
+      if (changed) this.setState(s => ({ revealed: { ...s.revealed, ...upd } }));
+    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+    this._scanReveals();
+  }
+  componentDidUpdate() {
+    this._scanReveals();
+  }
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.handleScroll);
+    window.removeEventListener('wheel', this.onHeroWheel);
+    window.removeEventListener('touchstart', this.onHeroTouchStart);
+    window.removeEventListener('touchmove', this.onHeroTouchMove);
+    window.removeEventListener('touchend', this.onHeroTouchEnd);
+    if (this._io) this._io.disconnect();
+  }
+  handleScroll = () => {
+    if (!this.state.heroExpanded) window.scrollTo(0, 0);
+    const sc = window.scrollY > 40;
+    if (sc !== this.state.scrolled) this.setState({ scrolled: sc });
+  };
+  onHeroWheel = (e) => {
+    const { heroExpanded, heroProgress, heroShowContent } = this.state;
+    if (heroExpanded) {
+      if (e.deltaY < 0 && window.scrollY <= 5) {
+        e.preventDefault();
+        this.setState({ heroExpanded: false, heroShowContent: false });
+      }
+      return;
+    }
+    e.preventDefault();
+    const next = Math.min(Math.max(heroProgress + e.deltaY * 0.0011, 0), 1);
+    this.setState({
+      heroProgress: next,
+      heroExpanded: next >= 1,
+      heroShowContent: next >= 1 ? true : (next < 0.7 ? false : heroShowContent)
+    });
+  };
+  onHeroTouchStart = (e) => { this._touchStartY = e.touches[0].clientY; };
+  onHeroTouchMove = (e) => {
+    const { heroExpanded, heroProgress, heroShowContent } = this.state;
+    if (this._touchStartY == null) return;
+    const y = e.touches[0].clientY;
+    const deltaY = this._touchStartY - y;
+    if (heroExpanded) {
+      if (deltaY < -20 && window.scrollY <= 5) {
+        e.preventDefault();
+        this.setState({ heroExpanded: false, heroShowContent: false });
+      }
+      return;
+    }
+    e.preventDefault();
+    const factor = deltaY < 0 ? 0.006 : 0.004;
+    const next = Math.min(Math.max(heroProgress + deltaY * factor, 0), 1);
+    this.setState({
+      heroProgress: next,
+      heroExpanded: next >= 1,
+      heroShowContent: next >= 1 ? true : (next < 0.7 ? false : heroShowContent)
+    });
+    this._touchStartY = y;
+  };
+  onHeroTouchEnd = () => { this._touchStartY = null; };
+
+  pauseCases = () => this.setState({ casesPaused: true });
+  resumeCases = () => this.setState({ casesPaused: false });
+
+  _scanReveals = () => {
+    if (!this._io) return;
+    document.querySelectorAll('[data-reveal-id]').forEach(el => {
+      if (!this._observed.has(el)) {
+        this._observed.add(el);
+        this._io.observe(el);
+      }
+    });
+  };
+  _reveal(id, opts) {
+    const on = !!this.state.revealed[id];
+    const delay = (opts && opts.delay) || 0;
+    const dist = (opts && opts.dist) != null ? opts.dist : 24;
+    return {
+      opacity: on ? 1 : 0,
+      transform: on ? 'translateY(0px)' : `translateY(${dist}px)`,
+      transition: `opacity .8s cubic-bezier(.22,.61,.36,1) ${delay}ms, transform .8s cubic-bezier(.22,.61,.36,1) ${delay}ms`
+    };
+  }
+
+  updateSlider(e) {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const pct = Math.min(100, Math.max(0, ((e.clientX - rect.left) / rect.width) * 100));
+    this.setState({ sliderPos: pct });
+  }
+  onSliderDown = (e) => { e.currentTarget.setPointerCapture(e.pointerId); this._dragSlider = true; this.updateSlider(e); };
+  onSliderMove = (e) => { if (this._dragSlider) this.updateSlider(e); };
+  onSliderUp = () => { this._dragSlider = false; };
+
+
+
+  renderVals() {
+    const { scrolled, filter, openFaq, sliderPos, heroProgress: p, heroExpanded, heroShowContent } = this.state;
+    const magnetMove = this.magnetMove, magnetLeave = this.magnetLeave;
+    const beforeAfterMode = this.props.beforeAfterMode ?? 'slider';
+    const whatsappNumber = this.props.whatsappNumber ?? '5511999999999';
+    const titleShift = 4 + p * 40;
+    const visibleCases = filter === 'Todos' ? CASES : CASES.filter(c => c.category === filter);
+
+    return {
+      magnetMove, magnetLeave, originEnter: this.originEnter,
+      trailMove: this.trailMove, trailLeave: this.trailLeave,
+      trailImages: [...SHOWCASE.map(s => ({ src: s.src })), ...CASES.map(c => ({ src: c.src }))],
+      heroBgStyle: { position: 'absolute', inset: 0, zIndex: 1, opacity: 1 - p * 0.88, transition: 'opacity .1s linear' },
+      heroMediaWrapStyle: {
+        position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%,-50%)', zIndex: 2,
+        width: `${46 + p * 48}vw`, height: `${50 + p * 38}vh`, maxWidth: '95vw', maxHeight: '90vh',
+        borderRadius: '3px', overflow: 'hidden', boxShadow: '0 20px 60px rgba(0,0,0,.45)',
+        opacity: Math.min(1, p * 4), transition: 'opacity .15s linear'
+      },
+      heroMediaScrimStyle: { position: 'absolute', inset: 0, background: `rgba(20,18,15,${0.5 - p * 0.3})`, pointerEvents: 'none' },
+      heroTitleWrapStyle: {
+        position: 'absolute', top: '50%', left: 0, right: 0, transform: 'translateY(-50%)', zIndex: 3,
+        display: 'flex', justifyContent: 'center', flexWrap: 'wrap', gap: '0 16px', padding: '0 24px', pointerEvents: 'none'
+      },
+      heroTitleLeftStyle: {
+        fontFamily: "'Instrument Serif',serif", fontWeight: 400, fontSize: 'clamp(32px,5.5vw,68px)',
+        color: '#f1ede8', textShadow: '0 2px 24px rgba(0,0,0,.4)', transform: `translateX(-${titleShift}vw)`
+      },
+      heroTitleRightStyle: {
+        fontFamily: "'Instrument Serif',serif", fontWeight: 400, fontSize: 'clamp(32px,5.5vw,68px)',
+        color: '#f1ede8', textShadow: '0 2px 24px rgba(0,0,0,.4)', transform: `translateX(${titleShift}vw)`
+      },
+      heroContentStyle: {
+        position: 'absolute', left: 0, right: 0, bottom: '64px', display: 'flex', flexDirection: 'column',
+        alignItems: 'center', zIndex: 4, opacity: heroShowContent ? 1 : 0, pointerEvents: heroShowContent ? 'auto' : 'none',
+        transition: 'opacity .5s ease'
+      },
+      heroCueStyle: {
+        position: 'absolute', left: '50%', bottom: '28px', transform: 'translateX(-50%)', display: 'flex',
+        flexDirection: 'column', alignItems: 'center', gap: '8px', zIndex: 4, pointerEvents: 'none',
+        opacity: heroExpanded ? 0 : 1, transition: 'opacity .3s ease'
+      },
+      navBarStyle: {
+        position: 'fixed', top: 0, left: 0, right: 0, zIndex: 50,
+        background: scrolled ? '#f1ede8' : 'transparent',
+        boxShadow: scrolled ? '0 1px 0 rgba(40,45,49,.1)' : 'none',
+        transition: 'background .25s ease, box-shadow .25s ease'
+      },
+      navTextColor: scrolled ? '#282d31' : '#f1ede8',
+      revealCarrossel: { padding: '100px 0 70px', ...this._reveal('carrossel') },
+      revealSobreText: { flex: '1 1 380px', minWidth: '300px', position: 'sticky', top: '110px', display: 'flex', flexDirection: 'column', gap: '22px', ...this._reveal('sobre-text') },
+      revealProjetosHeader: { display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', flexWrap: 'wrap', gap: '16px', marginBottom: '30px', ...this._reveal('projetos-header') },
+      revealComoFuncionaHeader: { padding: '90px 0', ...this._reveal('como-funciona-header') },
+      revealServicosHeader: { padding: '90px 0', ...this._reveal('servicos-header') },
+      revealDiferenciais: { padding: '90px 0', background: '#282d31', ...this._reveal('diferenciais') },
+      revealAntesDepois: { padding: '90px 0', ...this._reveal('antes-depois') },
+      revealFaqHeader: { padding: '90px 0', background: '#eae5db', ...this._reveal('faq-header') },
+      revealContato: { padding: '100px 0 60px', position: 'relative', overflow: 'hidden', ...this._reveal('contato') },
+      flowPaths: FLOW_PATHS.map(p => ({
+        d: p.d,
+        pathStyle: { stroke: p.stroke, strokeWidth: p.width, opacity: p.opacity, strokeLinecap: 'round', animation: `flow-drift ${p.dur}s ease-in-out infinite, flow-fade ${(p.dur * 0.7).toFixed(1)}s ease-in-out infinite`, animationDelay: p.delay + 's' }
+      })),
+      showcase: SHOWCASE.map((s, i) => ({
+        ...s,
+        enter: () => this.setState({ showcaseHover: i }),
+        wrapStyle: {
+          position: 'relative', flex: i === this.state.showcaseHover ? '5' : '1', minWidth: '52px',
+          borderRadius: '10px', overflow: 'hidden', transition: 'flex .5s cubic-bezier(.22,.61,.36,1)',
+          cursor: 'pointer'
+        }
+      })),
+      aboutStack: ABOUT_STACK,
+      chips: TYPES.map(t => ({
+        label: t,
+        click: () => this.setState({ filter: t }),
+        style: {
+          fontFamily: 'Manrope,sans-serif', fontSize: '12px', fontWeight: 600,
+          padding: '8px 16px', borderRadius: '20px', cursor: 'pointer',
+          border: t === filter ? '1px solid #282d31' : '1px solid rgba(40,45,49,.2)',
+          background: t === filter ? '#282d31' : 'transparent',
+          color: t === filter ? '#f1ede8' : '#282d31'
+        }
+      })),
+      filteredCases: (filter === 'Todos' ? CASES : CASES.filter(c => c.category === filter)),
+      casesTrack: [...visibleCases, ...visibleCases],
+      casesMaskStyle: {
+        overflow: 'hidden',
+        maskImage: 'linear-gradient(90deg,transparent 0%,#000 8%,#000 92%,transparent 100%)',
+        WebkitMaskImage: 'linear-gradient(90deg,transparent 0%,#000 8%,#000 92%,transparent 100%)',
+        ...this._reveal('cases-track', { dist: 18 })
+      },
+      casesTrackStyle: {
+        display: 'flex', gap: '28px', width: 'max-content',
+        animation: `marquee-x ${Math.max(24, visibleCases.length * 9)}s linear infinite`,
+        animationPlayState: this.state.casesPaused ? 'paused' : 'running'
+      },
+      revealProjetosSection: { padding: '90px 0', ...this._reveal('projetos-section', { dist: 18 }) },
+      steps: STEPS.map((st, i) => {
+        const hot = this.state.hoveredStep === i;
+        return {
+          ...st,
+          revealId: 'step-' + st.n,
+          imgSlotId: 'step-img-' + st.n,
+          enter: () => this.setState({ hoveredStep: i }),
+          leave: () => this.setState({ hoveredStep: null }),
+          imgWrapStyle: {
+            width: hot ? 'clamp(170px,19vw,260px)' : 'clamp(88px,9vw,124px)',
+            aspectRatio: '4 / 3', borderRadius: '2px', overflow: 'hidden', flex: 'none', marginLeft: 'auto',
+            filter: hot ? 'grayscale(0)' : 'grayscale(1)',
+            transform: hot ? 'scale(1.03)' : 'scale(1)',
+            boxShadow: hot ? '0 18px 40px rgba(40,45,49,.16)' : '0 0 0 rgba(40,45,49,0)',
+            transition: 'width .6s cubic-bezier(.22,.61,.36,1), filter .6s ease, transform .6s cubic-bezier(.22,.61,.36,1), box-shadow .6s ease'
+          },
+          rowStyle: { ...this._reveal('step-' + st.n, { delay: i * 70, dist: 16 }) }
+        };
+      }),
+      stepIndex: STEPS.map(s => ({ roman: s.roman, short: s.short })),
+      services: SERVICES.map((sv, i) => {
+        const active = this.state.activeService === i;
+        return {
+          ...sv,
+          num: String(i + 1).padStart(2, '0'),
+          revealId: 'service-' + i,
+          numColor: active ? '#d29a61' : '#5b5249',
+          nameColor: active ? '#d29a61' : '#282d31',
+          onToggle: () => this.setState(s => ({ activeService: s.activeService === i ? null : i })),
+          onHover: () => this.setState({ activeService: i }),
+          rowStyle: { ...this._reveal('service-' + i, { delay: (i % 3) * 60 }) },
+          descWrapStyle: { overflow: 'hidden', maxHeight: active ? '340px' : '0px', opacity: active ? 1 : 0, transition: 'max-height .4s ease, opacity .3s ease' }
+        };
+      }),
+      hasActiveService: true,
+      noActiveService: false,
+      activeServiceSlotId: this.state.activeService != null ? SERVICES[this.state.activeService].slotId : 'sv-default',
+      activeServicePlaceholder: this.state.activeService != null ? SERVICES[this.state.activeService].placeholder : SERVICES[0].placeholder,
+      activeServiceSrc: this.state.activeService != null ? SERVICES[this.state.activeService].src : SERVICES[0].src,
+      activeServiceName: this.state.activeService != null ? SERVICES[this.state.activeService].name : SERVICES[0].name,
+      activeImageStyle: { position: 'absolute', inset: 0, animation: 'fade-in .5s ease' },
+      diffs: DIFFS.map((d, i) => {
+        const hot = this.state.hoveredDiff === i;
+        return {
+          ...d,
+          imgSlotId: 'diff-img-' + d.idx,
+          enter: () => this.setState({ hoveredDiff: i }),
+          leave: () => this.setState({ hoveredDiff: null }),
+          imgWrapStyle: {
+            width: hot ? 'clamp(180px,20vw,270px)' : 'clamp(96px,10vw,140px)',
+            aspectRatio: '4 / 3', borderRadius: '2px', overflow: 'hidden', flex: 'none', marginLeft: 'auto',
+            filter: hot ? 'grayscale(0) brightness(1)' : 'grayscale(1) brightness(.92)',
+            transform: hot ? 'scale(1.03)' : 'scale(1)',
+            boxShadow: hot ? '0 20px 44px rgba(0,0,0,.35)' : '0 0 0 rgba(0,0,0,0)',
+            transition: 'width .6s cubic-bezier(.22,.61,.36,1), filter .6s ease, transform .6s cubic-bezier(.22,.61,.36,1), box-shadow .6s ease'
+          }
+        };
+      }),
+      onSliderDown: this.onSliderDown, onSliderMove: this.onSliderMove, onSliderUp: this.onSliderUp,
+      sliderMode: beforeAfterMode === 'slider',
+      sideBySideMode: beforeAfterMode !== 'slider',
+      afterClipStyle: { position: 'absolute', inset: 0, clipPath: `inset(0 ${100 - sliderPos}% 0 0)` },
+      handleStyle: { position: 'absolute', top: 0, bottom: 0, left: sliderPos + '%', transform: 'translateX(-50%)', width: '2px' },
+      faqItems: FAQ.map((f, i) => ({
+        question: f.question, answer: f.answer,
+        iconTransform: 'transform:' + (i === openFaq ? 'rotate(180deg)' : 'rotate(0deg)'),
+        toggle: () => this.setState({ openFaq: openFaq === i ? -1 : i }),
+        answerStyle: { overflow: 'hidden', maxHeight: openFaq === i ? '200px' : '0px', transition: 'max-height .3s ease' },
+        revealId: 'faq-' + i,
+        itemStyle: { borderTop: '1px solid rgba(40,45,49,.14)', padding: '20px 0', ...this._reveal('faq-' + i, { delay: i * 60, dist: 14 }) }
+      })),
+      whatsappLink: 'https://wa.me/' + whatsappNumber
+    };
+  }
+}
+
+</script>
+</body>
+</html>
